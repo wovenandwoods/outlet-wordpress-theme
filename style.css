@@ -1,0 +1,62 @@
+/*
+Theme Name: Woven and Woods Outlet
+Theme URI: 
+Author: Woven & Woods
+Author URI: 
+Description: A custom WordPress theme for the Woven & Woods outlet shop.
+Requires at least: 7.0
+Tested up to: 7.0
+Requires PHP: 5.7
+Version: 
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wovenandwoods-outlet
+Tags: 
+*/
+
+/* ---- General ---- */
+/* Force image links to pass layout sizing data down to SVGs */
+.wp-block-image a {
+    display: block;
+    width: 100%;
+}
+
+.wp-block-image a img {
+    width: 100%;
+    height: auto;
+}
+
+/* ---- Header ---- */
+/* Sticky header: info bar scrolls away, nav bar sticks */
+.wp-block-template-part:has(.ww-header) {
+    position: sticky;
+    top: -20.998px;
+    z-index: 100;
+}
+
+.ww-header {
+    position: static !important;
+}
+
+.ww-header-inner,
+.ww-infobar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;;
+}
+
+.ww-shop-icons {
+    gap: 0;
+}
+
+/* Blur and tint when scrolled past info bar */
+.ww-header {
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ww-header.is-scrolled {
+    background-color: color-mix(in srgb, var(--wp--preset--color--paper) 75%, transparent) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 0.25rem 2rem rgba(0, 0, 0, 0.05);
+}
