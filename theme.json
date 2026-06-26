@@ -221,10 +221,26 @@
 						},
 						{
 							"fontFamily": "\"Nyght Serif\"",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/nyght-serif/nyght-serif-400-italic.ttf"
+							]
+						},
+						{
+							"fontFamily": "\"Nyght Serif\"",
 							"fontStyle": "normal",
 							"fontWeight": "500",
 							"src": [
 								"file:./assets/fonts/nyght-serif/nyght-serif-500-normal.ttf"
+							]
+						},
+						{
+							"fontFamily": "\"Nyght Serif\"",
+							"fontStyle": "italic",
+							"fontWeight": "500",
+							"src": [
+								"file:./assets/fonts/nyght-serif/nyght-serif-500-italic.ttf"
 							]
 						}
 					],
@@ -417,7 +433,7 @@
 				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--nyght-serif)",
-					"fontStyle": "italic",
+					"fontStyle": "normal",
 					"fontWeight": "400",
 					"letterSpacing": "-0.01em",
 					"lineHeight": "1.2"

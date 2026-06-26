@@ -32,3 +32,15 @@ function my_woocommerce_theme_setup() {
     add_editor_style( 'style.css' );
 }
 add_action( 'after_setup_theme', 'my_woocommerce_theme_setup' );
+
+// Register a "Secondary" style variation for the Button block
+function my_custom_theme_block_styles() {
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'secondary',
+            'label' => __( 'Secondary', 'wovenandwoods-outlet' ),
+        )
+    );
+}
+add_action( 'init', 'my_custom_theme_block_styles' );
