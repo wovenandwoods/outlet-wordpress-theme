@@ -105,6 +105,19 @@ Tags:
     padding: 0.5rem 1rem;
 }
 
+.ww-pill>a:hover {
+    background: var(--wp--preset--color--gold-tint);
+}
+
+.ww-pill>a:active {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--wp--preset--color--stone);
+}
+
+.ww-pill.active>a {
+    background: var(--wp--preset--color--gold-tint);
+}
+
 /* ---- Hero ---- */
 .ww-hero {
     /* !!! Change this image for a local one in production */
