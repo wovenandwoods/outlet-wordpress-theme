@@ -1,46 +1,57 @@
 <?php
+
 /**
  * Theme functions and definitions.
  */
 
-function my_custom_theme_assets() {
-    // 1. Enqueue your style.css for the live site
+function ww_custom_theme_assets()
+{
     wp_enqueue_style(
-        'my-custom-theme-styles', // Unique handle
-        get_stylesheet_uri(),      // Automatically points to your root style.css
-        array(), 
-        filemtime( get_theme_file_path( '/style.css' ) ) // Cache busting
+        'ww-custom-theme-styles',
+        get_stylesheet_uri(),
+        array(),
+        filemtime(get_theme_file_path('/style.css')) // Cache busting
     );
 
-    // 2. Enqueue the header scroll script (from earlier)
     wp_enqueue_script(
-        'header-scroll',
-        get_theme_file_uri( '/assets/js/header-scroll.js' ),
+        'ww-header-scroll',
+        get_theme_file_uri('/assets/js/header-scroll.js'),
         array(),
-        filemtime( get_theme_file_path( '/assets/js/header-scroll.js' ) ),
+        filemtime(get_theme_file_path('/assets/js/header-scroll.js')),
+        array(
+            'strategy'  => 'defer',
+            'in_footer' => true,
+        )
+    );
+
+    wp_enqueue_script(
+        'ww-product-filter',
+        get_theme_file_uri('/assets/js/product-filter.js'),
+        array(),
+        filemtime(get_theme_file_path('/assets/js/product-filter.js')),
         array(
             'strategy'  => 'defer',
             'in_footer' => true,
         )
     );
 }
-add_action( 'wp_enqueue_scripts', 'my_custom_theme_assets' );
+add_action('wp_enqueue_scripts', 'ww_custom_theme_assets');
 
-// Keep your editor styles hook exactly as it was
-function my_woocommerce_theme_setup() {
-    add_theme_support( 'editor-styles' );
-    add_editor_style( 'style.css' );
+function ww_woocommerce_theme_setup()
+{
+    add_theme_support('editor-styles');
+    add_editor_style('style.css');
 }
-add_action( 'after_setup_theme', 'my_woocommerce_theme_setup' );
+add_action('after_setup_theme', 'ww_woocommerce_theme_setup');
 
-// Register a "Secondary" style variation for the Button block
-function my_custom_theme_block_styles() {
+function ww_custom_theme_block_styles()
+{
     register_block_style(
         'core/button',
         array(
             'name'  => 'secondary',
-            'label' => __( 'Secondary', 'wovenandwoods-outlet' ),
+            'label' => __('Secondary', 'wovenandwoods-outlet'),
         )
     );
 }
-add_action( 'init', 'my_custom_theme_block_styles' );
+add_action('init', 'ww_custom_theme_block_styles');

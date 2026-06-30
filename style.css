@@ -197,7 +197,6 @@ Tags:
 
 .ww-product-media {
     position: relative;
-    aspect-ratio: 4 / 5;
     overflow: hidden;
     background: var(--wp--preset--color--paper);
 }
