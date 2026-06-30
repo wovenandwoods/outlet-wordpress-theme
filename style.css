@@ -16,6 +16,33 @@ Tags:
 
 /* ---- General ---- */
 /* Force image links to pass layout sizing data down to SVGs */
+:root {
+    /* Shadows */
+    --shadow-none: none;
+    --shadow-xs: 0 1px 2px color-mix(in srgb, var(--wp--preset--color--charcoal) 6%, transparent);
+    --shadow-sm: 0 2px 6px color-mix(in srgb, var(--wp--preset--color--charcoal) 7%, transparent);
+    --shadow-md: 0 8px 24px color-mix(in srgb, var(--wp--preset--color--charcoal) 8%, transparent);
+    --shadow-lg: 0 18px 48px color-mix(in srgb, var(--wp--preset--color--charcoal) 12%, transparent);
+    --shadow-card: 0 2px 14px color-mix(in srgb, var(--wp--preset--color--blue) 6%, transparent);
+    --shadow-float: 0 24px 60px color-mix(in srgb, var(--wp--preset--color--blue-deep) 18%, transparent);
+
+    /* Motion */
+    --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-fast: 140ms;
+    --dur-base: 240ms;
+    --dur-slow: 420ms;
+    --dur-image: 700ms;
+
+    /* Borders and lines */
+    --border-hairline: color-mix(in srgb, var(--wp--preset--color--charcoal) 12%, transparent);
+    --border-soft: color-mix(in srgb, var(--wp--preset--color--charcoal) 8%, transparent);
+    --border-strong: color-mix(in srgb, var(--wp--preset--color--charcoal) 22%, transparent);
+    --border-on-ink: color-mix(in srgb, var(--wp--preset--color--paper) 18%, transparent);
+    --border-gold: var(--wp--preset--color--gold);
+}
+
 .wp-block-image a {
     display: block;
     width: 100%;
@@ -30,20 +57,14 @@ Tags:
 /* Sticky header: info bar scrolls away, nav bar sticks */
 .wp-block-template-part:has(.ww-header) {
     position: sticky;
-    top: -20.998px;
+    top: -41px;
+    /* Adjust this value to match the height of the info bar */
     z-index: 100;
 }
 
 .ww-header {
     position: static !important;
-}
-
-.ww-header-inner,
-.ww-infobar-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-    ;
+    border-bottom: 1px solid var(--border-soft);
 }
 
 .ww-shop-icons {
@@ -56,7 +77,7 @@ Tags:
 }
 
 .ww-header.is-scrolled {
-    background-color: color-mix(in srgb, var(--wp--preset--color--paper) 75%, transparent) !important;
+    background-color: color-mix(in srgb, var(--wp--preset--color--paper) 85%, transparent) !important;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     box-shadow: 0 0.25rem 2rem rgba(0, 0, 0, 0.05);
@@ -85,6 +106,15 @@ Tags:
 }
 
 /* ---- Hero ---- */
+.ww-hero {
+    /* !!! Change this image for a local one in production */
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)),
+        url('/wp-content/themes/wovenandwoods-outlet/assets/images/hero.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
 .ww-hero-text {
     color: var(--wp--preset--color--paper);
 }
@@ -140,7 +170,59 @@ Tags:
     border-color: #1c4460;
 }
 
+/* ---- Product grid ---- */
+.ww-product-grid>ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px;
+    background: none !important;
+}
+
+/* ---- Product cards ---- */
+.ww-product>li {
+    display: flex;
+    flex-direction: column;
+    background: var(--wp--preset--color--paper);
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard);
+}
+
+.ww-product>li:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.ww-product-media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--wp--preset--color--paper);
+}
+
+.ww-product-image>a {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-image) var(--ease-standard);
+}
+
+.ww-product>li:hover .ww-product-image>a {
+    transform: scale(1.05);
+}
+
+
 /* ---- Footer ---- */
+.ww-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-soft);
+}
+
 .ww-eyebrow,
 .ww-eyebrow>a {
     color: var(--wp--preset--color--gold);
@@ -149,4 +231,9 @@ Tags:
     letter-spacing: 0.1em;
     margin: 0;
     text-decoration: none;
+}
+
+.ww-footer-copyright {
+    color: var(--wp--preset--color--stone);
+    font-size: small;
 }
