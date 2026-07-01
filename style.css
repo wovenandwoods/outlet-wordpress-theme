@@ -17,6 +17,24 @@ Tags:
 /* ---- General ---- */
 /* Force image links to pass layout sizing data down to SVGs */
 :root {
+    /* Brand colors (from theme.json) */
+    --blue: var(--wp--preset--color--blue);
+    --blue-deep: var(--wp--preset--color--blue-deep);
+    --blue-mid: var(--wp--preset--color--blue-mid);
+    --blue-tint: var(--wp--preset--color--blue-tint);
+    --gold: var(--wp--preset--color--gold);
+    --gold-deep: var(--wp--preset--color--gold-deep);
+    --gold-tint: var(--wp--preset--color--gold-tint);
+    --green: var(--wp--preset--color--green);
+    --burgundy: var(--wp--preset--color--burgundy);
+    --terracotta: var(--wp--preset--color--terracotta);
+    --beige: var(--wp--preset--color--beige);
+    --paper: var(--wp--preset--color--paper);
+    --sand: var(--wp--preset--color--sand);
+    --stone: var(--wp--preset--color--stone);
+    --ink: var(--wp--preset--color--ink);
+    --charcoal: var(--wp--preset--color--charcoal);
+
     /* Shadows */
     --shadow-none: none;
     --shadow-xs: 0 1px 2px color-mix(in srgb, var(--wp--preset--color--charcoal) 6%, transparent);
@@ -41,6 +59,8 @@ Tags:
     --border-strong: color-mix(in srgb, var(--wp--preset--color--charcoal) 22%, transparent);
     --border-on-ink: color-mix(in srgb, var(--wp--preset--color--paper) 18%, transparent);
     --border-gold: var(--wp--preset--color--gold);
+
+
 }
 
 .wp-block-image a {
@@ -77,7 +97,7 @@ Tags:
 }
 
 .ww-header.is-scrolled {
-    background-color: color-mix(in srgb, var(--wp--preset--color--paper) 85%, transparent) !important;
+    background-color: color-mix(in srgb, var(--paper) 85%, transparent) !important;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     box-shadow: 0 0.25rem 2rem rgba(0, 0, 0, 0.05);
@@ -86,36 +106,36 @@ Tags:
 /* ---- Buttons ---- */
 /* "Secondary" button style: white background, blue-mid text, light gold on hover/focus/active */
 .wp-block-button.is-style-secondary>.wp-block-button__link {
-    background-color: var(--wp--preset--color--paper);
-    color: var(--wp--preset--color--blue-mid);
+    background-color: var(--paper);
+    color: var(--blue-mid);
 }
 
 .wp-block-button.is-style-secondary>.wp-block-button__link:hover,
 .wp-block-button.is-style-secondary>.wp-block-button__link:focus,
 .wp-block-button.is-style-secondary>.wp-block-button__link:active {
-    background-color: var(--wp--preset--color--gold-tint);
+    background-color: var(--gold-tint);
 }
 
 .ww-pill>a {
-    background: var(--wp--preset--color--paper);
-    color: var(--wp--preset--color--ink);
-    border: 1px solid var(--wp--preset--color--stone);
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--stone);
     border-radius: 2rem;
     font-size: small;
     padding: 0.5rem 1rem;
 }
 
 .ww-pill>a:hover {
-    background: var(--wp--preset--color--gold-tint);
+    background: var(--gold-tint);
 }
 
 .ww-pill>a:active {
     outline: none;
-    box-shadow: 0 0 0 2px var(--wp--preset--color--stone);
+    box-shadow: 0 0 0 2px var(--stone);
 }
 
 .ww-pill.active>a {
-    background: var(--wp--preset--color--gold-tint);
+    background: var(--gold-tint);
 }
 
 /* ---- Hero ---- */
@@ -129,18 +149,18 @@ Tags:
 }
 
 .ww-hero-text {
-    color: var(--wp--preset--color--paper);
+    color: var(--paper);
 }
 
 .ww-accent-text {
-    color: var(--wp--preset--color--gold);
+    color: var(--gold);
     font-style: italic;
 }
 
 .ww-accent-number {
     font-family: var(--wp--preset--font-family--nyght-serif);
     font-weight: 500;
-    color: var(--wp--preset--color--gold);
+    color: var(--gold);
     font-size: x-large;
 }
 
@@ -155,8 +175,8 @@ Tags:
     padding: 0.75rem 2.5rem 0.75rem 1rem;
     /* Generous right padding so text doesn't overlap the arrow */
     font-family: var(--wp--preset--font-family--jost);
-    background-color: var(--wp--preset--color--paper);
-    color: var(--wp--preset--color--ink);
+    background-color: var(--paper);
+    color: var(--ink);
     border: 1.5px solid #1c4460;
     cursor: pointer;
     outline: none;
@@ -179,7 +199,7 @@ Tags:
 /* Keep your active/focus halo exactly the same */
 .ww-sort-dropdown>form>select:focus {
     outline: none;
-    box-shadow: 0 0 0 4px var(--wp--preset--color--stone);
+    box-shadow: 0 0 0 4px var(--stone);
     border-color: #1c4460;
 }
 
@@ -195,7 +215,7 @@ Tags:
 .ww-product>li {
     display: flex;
     flex-direction: column;
-    background: var(--wp--preset--color--paper);
+    background: var(--paper);
     border: 1px solid var(--border-soft);
     border-radius: 4px;
     overflow: hidden;
@@ -211,7 +231,7 @@ Tags:
 .ww-product-media {
     position: relative;
     overflow: hidden;
-    background: var(--wp--preset--color--paper);
+    background: var(--paper);
 }
 
 .ww-product-image>a {
@@ -235,9 +255,13 @@ Tags:
     border-top: 1px solid var(--border-soft);
 }
 
+.ww-footer-grid>div>p>a {
+    text-decoration: none !important;
+}
+
 .ww-eyebrow,
 .ww-eyebrow>a {
-    color: var(--wp--preset--color--gold);
+    color: var(--gold);
     text-transform: uppercase;
     font-size: small;
     letter-spacing: 0.1em;
@@ -246,6 +270,6 @@ Tags:
 }
 
 .ww-footer-copyright {
-    color: var(--wp--preset--color--stone);
+    color: var(--stone);
     font-size: small;
 }
