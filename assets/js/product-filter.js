@@ -9,6 +9,15 @@
 
         if (filterButtons.length === 0 || productCards.length === 0) return;
 
+        // Category slugs that should also match their singular/plural counterpart
+        const slugSynonyms = {
+            rugs: ['rug', 'rugs'],
+            carpets: ['carpet', 'carpets'],
+            stairrunners: ['stairrunner', 'stairrunners', 'stair-runner', 'stair-runners'],
+            wood: ['wood', 'wood-flooring'],
+            vinyl: ['vinyl', 'vinyl-flooring', 'luxury-vinyl-flooring', 'lvt'],
+        };
+
         filterButtons.forEach(function (btnWrapper) {
             const btnLink = btnWrapper.querySelector('a');
             if (!btnLink) return;
@@ -28,7 +37,19 @@
                         return;
                     }
 
-                    const isMatch = card.classList.contains('product_cat-' + filterSlug);
+                    const synonyms = slugSynonyms[filterSlug];
+
+                    const isMatch = Array.from(card.classList).some(function (cls) {
+                        if (!cls.startsWith('product_cat-')) return false;
+                        const catSlug = cls.replace('product_cat-', '');
+
+                        if (synonyms) {
+                            // Match whole hyphen-delimited words, eg "medium-rug" or "large-rugs"
+                            return catSlug.split('-').some(word => synonyms.includes(word));
+                        }
+
+                        return catSlug === filterSlug;
+                    });
 
                     card.style.display = isMatch ? '' : 'none';
                 });
