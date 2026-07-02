@@ -59,8 +59,10 @@ Tags:
     --border-strong: color-mix(in srgb, var(--wp--preset--color--charcoal) 22%, transparent);
     --border-on-ink: color-mix(in srgb, var(--wp--preset--color--paper) 18%, transparent);
     --border-gold: var(--wp--preset--color--gold);
+}
 
-
+a {
+    text-decoration: none;
 }
 
 .wp-block-image a {
@@ -143,7 +145,7 @@ Tags:
     /* !!! Change this image for a local one in production */
     background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)),
-        url('/wp-content/themes/wovenandwoods-outlet/assets/images/hero.jpg');
+        url('/wp-content/themes/wovenandwoods-outlet/assets/images/hero.svg');
     background-size: cover;
     background-position: bottom;
 }
@@ -288,5 +290,6 @@ Tags:
 .ww-footer-copyright {
     font-size: small;
     padding-top: 1rem;
-    border-top: 1px solid var(--paper);
+    border-top: 1px solid var(--blue-tint);
+    color: var(--blue-tint);
 }
