@@ -13,6 +13,13 @@ function ww_custom_theme_assets()
         filemtime(get_theme_file_path('/style.css')) // Cache busting
     );
 
+    wp_enqueue_style(
+        'ww-custom-theme-responsive-styles',
+        get_theme_file_uri('/assets/css/responsive.css'),
+        array(),
+        filemtime(get_theme_file_path('/assets/css/responsive.css')) // Cache busting
+    );
+
     wp_enqueue_script(
         'ww-header-scroll',
         get_theme_file_uri('/assets/js/header-scroll.js'),

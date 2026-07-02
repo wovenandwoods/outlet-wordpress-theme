@@ -1,0 +1,5 @@
+@media only screen and (max-width : 768px) {
+    .ww-footer-policies {
+        justify-content: flex-start;
+    }
+}

@@ -263,6 +263,10 @@ Tags:
 
 
 /* ---- Footer ---- */
+.ww-footer > *{
+    color: var(--paper);
+}
+
 .ww-footer-columns {
     border-top: 1px solid var(--border-soft);
 }
@@ -282,6 +286,7 @@ Tags:
 }
 
 .ww-footer-copyright {
-    color: var(--stone);
     font-size: small;
+    padding-top: 1rem;
+    border-top: 1px solid var(--paper);
 }
