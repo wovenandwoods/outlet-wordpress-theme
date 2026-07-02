@@ -157,13 +157,6 @@ Tags:
     font-style: italic;
 }
 
-.ww-accent-number {
-    font-family: var(--wp--preset--font-family--nyght-serif);
-    font-weight: 500;
-    color: var(--gold);
-    font-size: x-large;
-}
-
 /* ---- Front page ---- */
 /* Product filter dropdown */
 .ww-sort-dropdown>form {
@@ -201,6 +194,24 @@ Tags:
     outline: none;
     box-shadow: 0 0 0 4px var(--stone);
     border-color: #1c4460;
+}
+
+/* ---- Step grid ---- */
+.ww-step-item {
+    align-items: start;
+}
+
+.ww-step-number {
+    font-family: var(--wp--preset--font-family--nyght-serif);
+    font-weight: 500;
+    color: var(--gold);
+    font-size: x-large;
+    text-wrap: nowrap;
+}
+
+/* ---- Product filter ---- */
+.ww-filter-columns > div{
+    display: flex;
 }
 
 /* ---- Product grid ---- */
@@ -245,17 +256,18 @@ Tags:
     transform: scale(1.05);
 }
 
+.ww-product-meta {
+    align-items: top;
+    justify-content: space-between;
+}
+
 
 /* ---- Footer ---- */
-.ww-footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
-    padding: 2rem 0;
+.ww-footer-columns {
     border-top: 1px solid var(--border-soft);
 }
 
-.ww-footer-grid>div>p>a {
+.ww-footer-columns>div>p>a {
     text-decoration: none !important;
 }
 
