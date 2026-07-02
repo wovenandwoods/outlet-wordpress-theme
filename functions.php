@@ -44,6 +44,11 @@ function ww_custom_theme_assets()
 }
 add_action('wp_enqueue_scripts', 'ww_custom_theme_assets');
 
+function add_custom_favicon() {
+    echo '<link rel="icon" type="image/svg+xml" href="' . get_theme_file_uri('/assets/images/favicon.svg') . '">' . "\n";
+}
+add_action('wp_head', 'add_custom_favicon');
+
 function ww_woocommerce_theme_setup()
 {
     add_theme_support('editor-styles');
